@@ -1,0 +1,39 @@
+.global_container {
+  height: 100dvh;
+  width: 100dvw;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--primario);
+}
+
+.header {
+  display: flex;
+  height: 3.7rem;
+  align-items: center;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0 1rem;
+  font-size: 1.7rem;
+
+  a {
+    padding: 0.3rem 0.5rem;
+    box-sizing: border-box;
+    color: black;
+    text-decoration: none;
+    border-radius: 99rem;
+  }
+}
+
+.active {
+  background-color: var(--cuaternario);
+}
+
+.main {
+  display: flex;
+  flex-grow: 1;
+}

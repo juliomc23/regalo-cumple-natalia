@@ -1,0 +1,48 @@
+.inicio {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  position: relative;
+}
+
+.oiluj {
+  width: 19rem;
+}
+
+.conversacion {
+  width: 99%;
+  height: 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: absolute;
+  bottom: 2px;
+  font-size: 1.3rem;
+  background-color: var(--terciario);
+  border: 1px solid var(--cuaternario);
+}
+
+.message {
+  width: 97%;
+  min-height: 5.8rem;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  font-size: 1.42rem;
+  font-weight: 400;
+}
+
+.buttonDiv {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+
+  button {
+    all: unset;
+  }
+}

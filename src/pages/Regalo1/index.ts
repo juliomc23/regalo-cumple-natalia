@@ -1,0 +1,1 @@
+export { default as Regalo1 } from './Regalo1';
