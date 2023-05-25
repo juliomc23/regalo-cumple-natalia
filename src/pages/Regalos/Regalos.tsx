@@ -18,7 +18,7 @@ const Regalos: React.FC<RegalosProps> = () => {
   const conversation = [
     "¡Hola Nataliaaa! Estás en la sección de los regalos.",
     "Te voy a dejar una barra de busqueda para que busques por regalos.",
-    "Para que no tengas pistas de ninguno, los regalos son regalo1 y regalo 2",
+    "Para que no tengas pistas de ninguno, el nombre de los regalos son regalo1 y regalo 2",
     "¡Te dije que iba a decirte los regalos, pero no va a ser tan sencillo!",
     "MUAJAJAJA 😈",
     "Intenta adivinarloooos",

@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import styles from "./Regalo1.module.scss";
 import cabeza from "/src/assets/oilujCabeza.png";
-import interrogacion from "/src/assets/interrogacion.avif";
 import zapatillas from "/src/assets/zapatillas.png";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import CardGiftcardIcon from "@mui/icons-material/CardGiftcard";
 
 export type Regalo1Props = unknown;
 
 const Regalo1: React.FC<Regalo1Props> = () => {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState({ visible: false, regalo: "" });
   const [messageIndex, setMessageIndex] = useState(0);
 
   const conversation = [
@@ -31,19 +31,36 @@ const Regalo1: React.FC<Regalo1Props> = () => {
     "Aquí tienes todas mis pistas",
     "Espero que te ayuden a dar un gran paso hacia tu regalo",
     "Dile ahora a Julio lo que piensas que es",
-    "¿Se lo has dicho ya? Si es que si, dale a continuar y observa tu regalo",
+    "¿Se lo has dicho ya? Si es que si, escribe lo que piensas que puede ser",
+    "Espero que te guste tu regalo 😁🤍",
   ];
 
   const nextMessage = () => {
     if (messageIndex < conversation.length - 1) {
       setMessageIndex((prevState) => prevState + 1);
     }
-    if (messageIndex === conversation.length - 1) {
-      setVisible(true);
-    }
   };
   const prevMessage = () => {
     if (messageIndex > 0) setMessageIndex((prevState) => prevState - 1);
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setVisible((prevState) => {
+      return { ...prevState, regalo: e.target.value };
+    });
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (
+      visible.regalo === "zapatillas" ||
+      visible.regalo === "zapatos" ||
+      visible.regalo === "vans"
+    ) {
+      setVisible((prevState) => {
+        return { ...prevState, visible: true };
+      });
+    }
   };
   return (
     <div className={styles.regalo1}>
@@ -64,10 +81,27 @@ const Regalo1: React.FC<Regalo1Props> = () => {
         </section>
       </section>
       <section className={styles.regaloDiv}>
-        <img
-          src={!visible ? interrogacion : zapatillas}
-          className={styles.imgRegalo}
-        />
+        {visible.visible ? (
+          <img src={zapatillas} className={styles.imgRegalo} />
+        ) : (
+          <form
+            className={styles.form}
+            onSubmit={handleSubmit}
+            autoComplete="nope"
+          >
+            <input
+              type="text"
+              name="regalo"
+              id="regalo"
+              placeholder="Dime el regalo que estás pensando"
+              onChange={handleChange}
+              autoComplete="nope"
+            />
+            <button type="submit">
+              <CardGiftcardIcon sx={{ fontSize: "2rem" }} />
+            </button>
+          </form>
+        )}
       </section>
     </div>
   );
