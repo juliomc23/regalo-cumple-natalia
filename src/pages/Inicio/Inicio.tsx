@@ -3,7 +3,7 @@ import styles from "./Inicio.module.scss";
 import Oiluj from "/src/assets/oiluj.png";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export type InicioProps = unknown;
 
@@ -33,7 +33,10 @@ const Inicio: React.FC<InicioProps> = () => {
 
   return (
     <div className={styles.inicio}>
-      <img src={Oiluj} alt="Oiluj" className={styles.oiluj} />
+      <Link to="/secreto">
+        <img src={Oiluj} alt="Oiluj" className={styles.oiluj} />
+      </Link>
+
       <section className={styles.conversacion}>
         <div className={styles.message}>
           <span>{conversation[messageIndex]}</span>

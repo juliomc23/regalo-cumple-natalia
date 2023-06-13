@@ -1,6 +1,6 @@
 import { NavLink, Navigate, Route, Routes } from "react-router-dom";
 import "./App.scss";
-import { Inicio, Regalos, Regalo1, Regalo2 } from "./pages";
+import { Inicio, Regalos, Regalo1, Regalo2, Secreto } from "./pages";
 
 function App() {
   return (
@@ -25,6 +25,7 @@ function App() {
           <Route path="/regalos" element={<Regalos />} />
           <Route path="/regalo1" element={<Regalo1 />} />
           <Route path="/regalo2" element={<Regalo2 />} />
+          <Route path="/secreto" element={<Secreto />} />
         </Routes>
       </main>
     </div>
